@@ -32,15 +32,15 @@ while True:
         q4238 = None
 
     if usa40sw != None:
-        winchester_40sw_stock = usa40sw.is_displayed()
+        winchester_40sw_stock |= usa40sw.is_displayed()
         print('usa40sw: ' + usa40sw.text + ' [' + str(usa40sw.is_displayed()) + ']')
 
     if usa40swvp != None:
-        winchester_40sw_stock = usa40swvp.is_displayed()
+        winchester_40sw_stock |= usa40swvp.is_displayed()
         print('usa40swvp: ' + usa40swvp.text + ' [' + str(usa40swvp.is_displayed()) + ']')
 
     if q4238 != None:
-        winchester_40sw_stock = q4238.is_displayed()
+        winchester_40sw_stock |= q4238.is_displayed()
         print('q4238: ' + q4238.text + ' [' + str(q4238.is_displayed()) + ']')
 
     if winchester_40sw_stock:
@@ -53,7 +53,7 @@ while True:
         q4172 = None
 
     if q4172 != None:
-        winchester_9mm_stock = q4172.is_displayed()
+        winchester_9mm_stock |= q4172.is_displayed()
         print('q4172: ' + q4172.text + ' [' + str(q4172.is_displayed()) + ']')
 
     if winchester_9mm_stock:
@@ -67,7 +67,7 @@ while True:
         usa40w = None
 
     if usa40w != None:
-        winchester_range_40sw_stock = usa40w.is_displayed()
+        winchester_range_40sw_stock |= usa40w.is_displayed()
         print('usa40w: ' + usa40w.text + ' [' + str(usa40w.is_displayed()) + ']')
 
     if winchester_range_40sw_stock:
@@ -81,7 +81,7 @@ while True:
         ww40b = None
 
     if ww40b != None:
-        winchester_bulk_40sw_stock = ww40b.is_displayed()
+        winchester_bulk_40sw_stock |= ww40b.is_displayed()
         print('ww40b: ' + ww40b.text + ' [' + str(ww40b.is_displayed()) + ']')
 
     if winchester_bulk_40sw_stock:
@@ -94,7 +94,7 @@ while True:
         ww9b = None
 
     if ww9b != None:
-        winchester_bulk_9mm_stock = ww9b.is_displayed()
+        winchester_bulk_9mm_stock |= ww9b.is_displayed()
         print('ww9b: ' + ww9b.text + ' [' + str(ww9b.is_displayed()) + ']')
 
     if winchester_bulk_9mm_stock:
@@ -114,11 +114,11 @@ while True:
         ae40r3 = None
 
     if ae40r1 != None:
-        ae_40sw_stock = ae40r1.is_displayed()
+        ae_40sw_stock |= ae40r1.is_displayed()
         print('ae40r1: ' + ae40r1.text + ' [' + str(ae40r1.is_displayed()) + ']')
 
     if ae40r3 != None:
-        ae_40sw_stock = ae40r3.is_displayed()
+        ae_40sw_stock |= ae40r3.is_displayed()
         print('ae40r3: ' + ae40r3.text + ' [' + str(ae40r3.is_displayed()) + ']')
 
     if ae_40sw_stock:
@@ -141,15 +141,15 @@ while True:
         ae9dp100 = None
 
     if ae9dp != None:
-        ae_9mm_stock = ae9dp.is_displayed()
+        ae_9mm_stock |= ae9dp.is_displayed()
         print('ae9dp: ' + ae9dp.text + ' [' + str(ae9dp.is_displayed()) + ']')
 
     if ae9fp != None:
-        ae_9mm_stock = ae9fp.is_displayed()
+        ae_9mm_stock |= ae9fp.is_displayed()
         print('ae9fp: ' + ae9fp.text + ' [' + str(ae9fp.is_displayed()) + ']')
 
     if ae9dp100 != None:
-        ae_9mm_stock = ae9dp100.is_displayed()
+        ae_9mm_stock |= ae9dp100.is_displayed()
         print('ae9dp100: ' + ae9dp100.text + ' [' + str(ae9dp100.is_displayed()) + ']')
 
     if ae_9mm_stock:
@@ -165,7 +165,7 @@ while True:
         blazer5220 = None
 
     if blazer5220 != None:
-        blazer_40sw_stock = blazer5220.is_displayed()
+        blazer_40sw_stock |= blazer5220.is_displayed()
         print('5220: ' + blazer5220.text + ' [' + str(blazer5220.is_displayed()) + ']')
 
     if blazer_40sw_stock:
@@ -178,7 +178,7 @@ while True:
         blazer5201 = None
 
     if blazer5201 != None:
-        blazer_9mm_stock = blazer5201.is_displayed()
+        blazer_9mm_stock |= blazer5201.is_displayed()
         print('5201: ' + blazer5201.text + ' [' + str(blazer5201.is_displayed()) + ']')
 
     if blazer_9mm_stock:
@@ -194,7 +194,7 @@ while True:
         e40sb2_200 = None
 
     if e40sb2_200 != None:
-        sig_40sw_stock = e40sb2_200.is_displayed()
+        sig_40sw_stock |= e40sb2_200.is_displayed()
         print('e40sb2-200: ' + e40sb2_200.text + ' [' + str(e40sb2_200.is_displayed()) + ']')
 
     if sig_40sw_stock:
@@ -210,7 +210,7 @@ while True:
         hrt9a = None
 
     if hrt9a != None:
-        herters_9mm_stock = hrt9a.is_displayed()
+        herters_9mm_stock |= hrt9a.is_displayed()
         print('hrt9a: ' + hrt9a.text + ' [' + str(hrt9a.is_displayed()) + ']')
 
     if herters_9mm_stock:
