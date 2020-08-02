@@ -11,6 +11,17 @@ options.headless = True
 options.add_argument("--window-size=1920,1200")
 driver = webdriver.Chrome(executable_path=DRIVER_PATH)
 
+winchester_40sw_stock_prev = False
+winchester_9mm_stock_prev = False
+winchester_range_40sw_stock_prev = False
+winchester_bulk_40sw_stock_prev = False
+winchester_bulk_9mm_stock_prev = False
+ae_40sw_stock_prev = False
+ae_9mm_stock_prev = False
+blazer_40sw_stock_prev = False
+sig_40sw_stock_prev = False
+herters_9mm_stock_prev = False
+ 
 while True:
 
     print('=== Winchester .40 SW & 9mm ===')
@@ -43,7 +54,7 @@ while True:
         winchester_40sw_stock |= q4238.is_displayed()
         print('q4238: ' + q4238.text + ' [' + str(q4238.is_displayed()) + ']')
 
-    if winchester_40sw_stock:
+    if winchester_40sw_stock and not(winchester_40sw_stock_prev):
         os.system('say "Winchester 40 found"')
 
     winchester_9mm_stock = False
@@ -56,7 +67,7 @@ while True:
         winchester_9mm_stock |= q4172.is_displayed()
         print('q4172: ' + q4172.text + ' [' + str(q4172.is_displayed()) + ']')
 
-    if winchester_9mm_stock:
+    if winchester_9mm_stock and not(winchester_9mm_stock_prev):
         os.system('say "Winchester 9 found"')
 
     driver.get('https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-range-pack')
@@ -70,7 +81,7 @@ while True:
         winchester_range_40sw_stock |= usa40w.is_displayed()
         print('usa40w: ' + usa40w.text + ' [' + str(usa40w.is_displayed()) + ']')
 
-    if winchester_range_40sw_stock:
+    if winchester_range_40sw_stock and not(winchester_range_40sw_stock_prev):
         os.system('say "Winchester Range 40 found"')
 
     driver.get('https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-bulk-pack')
@@ -84,7 +95,7 @@ while True:
         winchester_bulk_40sw_stock |= ww40b.is_displayed()
         print('ww40b: ' + ww40b.text + ' [' + str(ww40b.is_displayed()) + ']')
 
-    if winchester_bulk_40sw_stock:
+    if winchester_bulk_40sw_stock and not(winchester_bulk_40sw_stock_prev):
         os.system('say "Winchester Bulk 40 found"')
 
     winchester_bulk_9mm_stock = False
@@ -97,7 +108,7 @@ while True:
         winchester_bulk_9mm_stock |= ww9b.is_displayed()
         print('ww9b: ' + ww9b.text + ' [' + str(ww9b.is_displayed()) + ']')
 
-    if winchester_bulk_9mm_stock:
+    if winchester_bulk_9mm_stock and not(winchester_bulk_9mm_stock_prev):
         os.system('say "Winchester Bulk 9 found"')
 
     print('=== AE .40 SW & 9mm ===')
@@ -121,7 +132,7 @@ while True:
         ae_40sw_stock |= ae40r3.is_displayed()
         print('ae40r3: ' + ae40r3.text + ' [' + str(ae40r3.is_displayed()) + ']')
 
-    if ae_40sw_stock:
+    if ae_40sw_stock and not(ae_40sw_stock_prev):
         os.system('say "American Eagle 40 found"')
 
     ae_9mm_stock = False
@@ -152,7 +163,7 @@ while True:
         ae_9mm_stock |= ae9dp100.is_displayed()
         print('ae9dp100: ' + ae9dp100.text + ' [' + str(ae9dp100.is_displayed()) + ']')
 
-    if ae_9mm_stock:
+    if ae_9mm_stock and not(ae_9mm_stock_prev):
         os.system('say "American Eagle 9 found"')
 
     print('=== Blazer .40 SW & 9mm ===')
@@ -168,7 +179,7 @@ while True:
         blazer_40sw_stock |= blazer5220.is_displayed()
         print('5220: ' + blazer5220.text + ' [' + str(blazer5220.is_displayed()) + ']')
 
-    if blazer_40sw_stock:
+    if blazer_40sw_stock and not(blazer_40sw_stock_prev):
         os.system('say "Blazer 40 found"')
 
     blazer_9mm_stock = False
@@ -181,7 +192,7 @@ while True:
         blazer_9mm_stock |= blazer5201.is_displayed()
         print('5201: ' + blazer5201.text + ' [' + str(blazer5201.is_displayed()) + ']')
 
-    if blazer_9mm_stock:
+    if blazer_9mm_stock and not (blazer_9mm_stock_prev):
         os.system('say "Blazer 9 found"')
 
     driver.get('https://www.basspro.com/shop/en/450-406-100122828')
@@ -197,7 +208,7 @@ while True:
         sig_40sw_stock |= e40sb2_200.is_displayed()
         print('e40sb2-200: ' + e40sb2_200.text + ' [' + str(e40sb2_200.is_displayed()) + ']')
 
-    if sig_40sw_stock:
+    if sig_40sw_stock and not(sig_40sw_stock_prev):
         os.system('say "Sig Sauer 40 found"')
 
     driver.get('https://www.basspro.com/shop/en/herters-target-handgun-ammo')
@@ -213,8 +224,20 @@ while True:
         herters_9mm_stock |= hrt9a.is_displayed()
         print('hrt9a: ' + hrt9a.text + ' [' + str(hrt9a.is_displayed()) + ']')
 
-    if herters_9mm_stock:
+    if herters_9mm_stock and not(herters_9mm_stock_prev):
         os.system('say "Herters 9 found"')
+
+    # update flags
+    winchester_40sw_stock_prev = winchester_40sw_stock
+    winchester_9mm_stock_prev = winchester_9mm_stock
+    winchester_range_40sw_stock_prev = winchester_range_40sw_stock
+    winchester_bulk_40sw_stock_prev = winchester_bulk_40sw_stock
+    winchester_bulk_9mm_stock_prev = winchester_bulk_9mm_stock
+    ae_40sw_stock_prev = ae_40sw_stock
+    ae_9mm_stock_prev = ae_9mm_stock
+    blazer_40sw_stock_prev = blazer_40sw_stock
+    sig_40sw_stock_prev = sig_40sw_stock
+    herters_9mm_stock_prev = herters_9mm_stock
 
     # wait for 5min for the next check
     time.sleep(300)
