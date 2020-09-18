@@ -1,0 +1,140 @@
+﻿{
+  "inventory_urls": [
+    {
+      "url": "https://www.basspro.com/shop/en/winchester-usa-handgun-ammo",
+      "name": "Winchester Ammo",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "usa40sw",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616717636_table"
+        },
+        {
+          "model": "usa40swvp",
+          "sku": "SKU_List_Widget_Add2CartButton_89631_table"
+        },
+        {
+          "model": "q4238",
+          "sku": "SKU_List_Widget_Add2CartButton_76220_table"
+        },
+        {
+          "model": "q4172",
+          "sku": "SKU_List_Widget_Add2CartButton_73894_table"
+        },
+        {
+          "model": "q4238",
+          "sku": "SKU_List_Widget_Add2CartButton_76220_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-range-pack",
+      "name": "Winchester Range Pack",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "usa40w",
+          "sku": "SKU_List_Widget_Add2CartButton_236459_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-bulk-pack",
+      "name": "Winchester Bulk Pack",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "ww40b",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345617440160_table"
+        },
+        {
+          "model": "ww9b",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345617440159_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/federal-american-eagle-centerfire-handgun-ammo",
+      "name": "American Eagle",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "ae40r1",
+          "sku": "SKU_List_Widget_Add2CartButton_131832_table"
+        },
+        {
+          "model": "ae40r3",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616700133_table"
+        },
+        {
+          "model": "ae9dp",
+          "sku": "SKU_List_Widget_Add2CartButton_131828_table"
+        },
+        {
+          "model": "ae9fp",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616700134_table"
+        },
+        {
+          "model": "ae9dp100",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616932618_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/blazer-brass-handgun-ammo",
+      "name": "Blazer",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "blazer5220",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616736952_table"
+        },
+        {
+          "model": "blazer5201",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345616736948_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/450-406-100122828",
+      "name": "Sig Sauer Elite 40",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "e40sb2_200",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345618731665_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/sig-sauer-elite-performance-fmj-handgun-ammo",
+      "name": "Sig Sauer Elite",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "e9mmb2_50",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345618730635_table"
+        }
+      ]
+    },
+    {
+      "url": "https://www.basspro.com/shop/en/herters-target-handgun-ammo",
+      "name": "Herters",
+      "curr_instock": false,
+      "prev_instock": false,
+      "items": [
+        {
+          "model": "hrt9a",
+          "sku": "SKU_List_Widget_Add2CartButton_3074457345618973127_table"
+        }
+      ]
+    }
+  ]
+}
