@@ -1,6 +1,13 @@
+# README
+# 1. set up the DRIVER_PATH after downloading chromedriver for your platform
+#    https://chromedriver.chromium.org/
+# 2. set up gmail user name and password (SMTP server default to gmail currently)
+# 3. run the script
+
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
+import smtplib
 import time
 import os
 
@@ -19,9 +26,20 @@ winchester_bulk_9mm_stock_prev = False
 ae_40sw_stock_prev = False
 ae_9mm_stock_prev = False
 blazer_40sw_stock_prev = False
+blazer_9mm_stock_prev = False
 sig_40sw_stock_prev = False
+sig_9mm_stock_prev = False
 herters_9mm_stock_prev = False
  
+#set up email
+gmail_user = "XXX@gmail.com"
+gmail_password = "XXX"
+
+sent_from = gmail_user
+to = "YYY@ZZZ.com"
+subject = "Bass Pro inventory updated"
+body = ""
+
 while True:
 
     print('=== Winchester .40 SW & 9mm ===')
@@ -43,19 +61,20 @@ while True:
         q4238 = None
 
     if usa40sw != None:
-        winchester_40sw_stock |= usa40sw.is_displayed()
         print('usa40sw: ' + usa40sw.text + ' [' + str(usa40sw.is_displayed()) + ']')
+        winchester_40sw_stock |= usa40sw.is_displayed()
 
     if usa40swvp != None:
-        winchester_40sw_stock |= usa40swvp.is_displayed()
         print('usa40swvp: ' + usa40swvp.text + ' [' + str(usa40swvp.is_displayed()) + ']')
+        winchester_40sw_stock |= usa40swvp.is_displayed()
 
     if q4238 != None:
-        winchester_40sw_stock |= q4238.is_displayed()
         print('q4238: ' + q4238.text + ' [' + str(q4238.is_displayed()) + ']')
+        winchester_40sw_stock |= q4238.is_displayed()
 
     if winchester_40sw_stock and not(winchester_40sw_stock_prev):
         os.system('say "Winchester 40 found"')
+        body += "Winchester 40 found \n"
 
     winchester_9mm_stock = False
     try:
@@ -64,11 +83,12 @@ while True:
         q4172 = None
 
     if q4172 != None:
-        winchester_9mm_stock |= q4172.is_displayed()
         print('q4172: ' + q4172.text + ' [' + str(q4172.is_displayed()) + ']')
+        winchester_9mm_stock |= q4172.is_displayed()
 
     if winchester_9mm_stock and not(winchester_9mm_stock_prev):
         os.system('say "Winchester 9 found"')
+        body += "Winchester 9 found \n"
 
     driver.get('https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-range-pack')
     winchester_range_40sw_stock = False
@@ -78,12 +98,14 @@ while True:
         usa40w = None
 
     if usa40w != None:
-        winchester_range_40sw_stock |= usa40w.is_displayed()
         print('usa40w: ' + usa40w.text + ' [' + str(usa40w.is_displayed()) + ']')
+        winchester_range_40sw_stock |= usa40w.is_displayed()
 
     if winchester_range_40sw_stock and not(winchester_range_40sw_stock_prev):
         os.system('say "Winchester Range 40 found"')
+        body += "Winchester Range 40 found \n"
 
+    print('=== Winchester bulk pack ===')
     driver.get('https://www.basspro.com/shop/en/winchester-usa-handgun-ammo-bulk-pack')
     winchester_bulk_40sw_stock = False
     try:
@@ -92,11 +114,12 @@ while True:
         ww40b = None
 
     if ww40b != None:
-        winchester_bulk_40sw_stock |= ww40b.is_displayed()
         print('ww40b: ' + ww40b.text + ' [' + str(ww40b.is_displayed()) + ']')
+        winchester_bulk_40sw_stock |= ww40b.is_displayed()
 
     if winchester_bulk_40sw_stock and not(winchester_bulk_40sw_stock_prev):
         os.system('say "Winchester Bulk 40 found"')
+        body += "Winchester Bulk 40 found \n"
 
     winchester_bulk_9mm_stock = False
     try:
@@ -105,11 +128,12 @@ while True:
         ww9b = None
 
     if ww9b != None:
-        winchester_bulk_9mm_stock |= ww9b.is_displayed()
         print('ww9b: ' + ww9b.text + ' [' + str(ww9b.is_displayed()) + ']')
+        winchester_bulk_9mm_stock |= ww9b.is_displayed()
 
     if winchester_bulk_9mm_stock and not(winchester_bulk_9mm_stock_prev):
         os.system('say "Winchester Bulk 9 found"')
+        body += "Winchester Bulk 9 found \n"
 
     print('=== AE .40 SW & 9mm ===')
     driver.get('https://www.basspro.com/shop/en/federal-american-eagle-centerfire-handgun-ammo')
@@ -125,15 +149,16 @@ while True:
         ae40r3 = None
 
     if ae40r1 != None:
-        ae_40sw_stock |= ae40r1.is_displayed()
         print('ae40r1: ' + ae40r1.text + ' [' + str(ae40r1.is_displayed()) + ']')
+        ae_40sw_stock |= ae40r1.is_displayed()
 
     if ae40r3 != None:
-        ae_40sw_stock |= ae40r3.is_displayed()
         print('ae40r3: ' + ae40r3.text + ' [' + str(ae40r3.is_displayed()) + ']')
+        ae_40sw_stock |= ae40r3.is_displayed()
 
     if ae_40sw_stock and not(ae_40sw_stock_prev):
         os.system('say "American Eagle 40 found"')
+        body += "American Eagle 40 found \n"
 
     ae_9mm_stock = False
     try:
@@ -152,19 +177,20 @@ while True:
         ae9dp100 = None
 
     if ae9dp != None:
-        ae_9mm_stock |= ae9dp.is_displayed()
         print('ae9dp: ' + ae9dp.text + ' [' + str(ae9dp.is_displayed()) + ']')
+        ae_9mm_stock |= ae9dp.is_displayed()
 
     if ae9fp != None:
-        ae_9mm_stock |= ae9fp.is_displayed()
         print('ae9fp: ' + ae9fp.text + ' [' + str(ae9fp.is_displayed()) + ']')
+        ae_9mm_stock |= ae9fp.is_displayed()
 
     if ae9dp100 != None:
-        ae_9mm_stock |= ae9dp100.is_displayed()
         print('ae9dp100: ' + ae9dp100.text + ' [' + str(ae9dp100.is_displayed()) + ']')
+        ae_9mm_stock |= ae9dp100.is_displayed()
 
     if ae_9mm_stock and not(ae_9mm_stock_prev):
         os.system('say "American Eagle 9 found"')
+        body += "American Eagle 9 found \n"
 
     print('=== Blazer .40 SW & 9mm ===')
     driver.get('https://www.basspro.com/shop/en/blazer-brass-handgun-ammo')
@@ -176,11 +202,12 @@ while True:
         blazer5220 = None
 
     if blazer5220 != None:
-        blazer_40sw_stock |= blazer5220.is_displayed()
         print('5220: ' + blazer5220.text + ' [' + str(blazer5220.is_displayed()) + ']')
+        blazer_40sw_stock |= blazer5220.is_displayed()
 
     if blazer_40sw_stock and not(blazer_40sw_stock_prev):
         os.system('say "Blazer 40 found"')
+        body += "Blazer 40 found \n"
 
     blazer_9mm_stock = False
     try:
@@ -189,14 +216,15 @@ while True:
         blazer5201 = None
 
     if blazer5201 != None:
-        blazer_9mm_stock |= blazer5201.is_displayed()
         print('5201: ' + blazer5201.text + ' [' + str(blazer5201.is_displayed()) + ']')
+        blazer_9mm_stock |= blazer5201.is_displayed()
 
     if blazer_9mm_stock and not (blazer_9mm_stock_prev):
         os.system('say "Blazer 9 found"')
+        body += "Blazer 9 found \n"
 
     driver.get('https://www.basspro.com/shop/en/450-406-100122828')
-    print('=== Sig Sauer .40 SW ===')
+    print('=== Sig Sauer Elite .40 SW ===')
 
     sig_40sw_stock = False
     try:
@@ -205,11 +233,29 @@ while True:
         e40sb2_200 = None
 
     if e40sb2_200 != None:
-        sig_40sw_stock |= e40sb2_200.is_displayed()
         print('e40sb2-200: ' + e40sb2_200.text + ' [' + str(e40sb2_200.is_displayed()) + ']')
+        sig_40sw_stock |= e40sb2_200.is_displayed()
 
     if sig_40sw_stock and not(sig_40sw_stock_prev):
         os.system('say "Sig Sauer 40 found"')
+        body += "Sig Sauer 40 found \n"
+
+    driver.get('https://www.basspro.com/shop/en/sig-sauer-elite-performance-fmj-handgun-ammo')
+    print('=== Sig Sauer Elite 9mm ===')
+
+    sig_9mm_stock = False
+    try:
+        e9mmb2_50 = driver.find_element_by_id('SKU_List_Widget_Add2CartButton_3074457345618730635_table')
+    except NoSuchElementException:
+        e9mmb2_50 = None
+
+    if e9mmb2_50 != None:
+        print('e9mmb2-50: ' + e9mmb2_50.text + ' [' + str(e9mmb2_50.is_displayed()) + ']')
+        sig_9mm_stock |= e9mmb2_50.is_displayed()
+
+    if sig_9mm_stock and not(sig_9mm_stock_prev):
+        os.system('say "Sig Sauer 9mm found"')
+        body += "Sig Sauer 9mm found \n"
 
     driver.get('https://www.basspro.com/shop/en/herters-target-handgun-ammo')
     print('=== Herters 9mm ===')
@@ -221,11 +267,12 @@ while True:
         hrt9a = None
 
     if hrt9a != None:
-        herters_9mm_stock |= hrt9a.is_displayed()
         print('hrt9a: ' + hrt9a.text + ' [' + str(hrt9a.is_displayed()) + ']')
+        herters_9mm_stock |= hrt9a.is_displayed()
 
     if herters_9mm_stock and not(herters_9mm_stock_prev):
         os.system('say "Herters 9 found"')
+        body += "Herters 9 found \n"
 
     # update flags
     winchester_40sw_stock_prev = winchester_40sw_stock
@@ -236,8 +283,32 @@ while True:
     ae_40sw_stock_prev = ae_40sw_stock
     ae_9mm_stock_prev = ae_9mm_stock
     blazer_40sw_stock_prev = blazer_40sw_stock
+    blazer_9mm_stock_prev = blazer_9mm_stock
     sig_40sw_stock_prev = sig_40sw_stock
+    sig_9mm_stock_prev = sig_9mm_stock
     herters_9mm_stock_prev = herters_9mm_stock
+
+    if body != "":
+        email_text = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (sent_from, to, subject, body)
+
+        try:
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+            server.ehlo()
+            server.login(gmail_user, gmail_password)
+            server.sendmail(sent_from, to, email_text)
+            server.close()
+
+            print 'Email sent!'
+        except:
+            print 'SMTP login something went wrong...'
+
+    body = ""
 
     # wait for 5min for the next check
     time.sleep(300)
