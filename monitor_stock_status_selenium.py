@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 import smtplib
+from smtplib import *
 import time
 import os
 
@@ -305,8 +306,10 @@ Subject: %s
             server.close()
 
             print 'Email sent!'
-        except:
-            print 'SMTP login something went wrong...'
+        except SMTPResponseException as e:
+            error_code = e.smtp_code
+            error_message = e.smtp_error
+            print error_message
 
     body = ""
 
